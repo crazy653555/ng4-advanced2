@@ -10,7 +10,7 @@ import { RickshawComponent } from './charts/rickshaw/rickshaw.component';
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard',component:DashboardComponent},
-  { path: 'cards',component:CardsComponent},
+  { path: 'cards/:type',component:CardsComponent},
   { path: 'charts',
   children:[
     {path:'',redirectTo:'flot',pathMatch:'full'},
@@ -24,7 +24,8 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes,
     {
-      enableTracing: false
+      enableTracing: false,
+      useHash:true
     })],
   exports: [RouterModule]
 })
