@@ -3,10 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CardsComponent } from './cards/cards.component';
+import { FlotComponent } from './charts/flot/flot.component';
+import { RadialComponent } from './charts/radial/radial.component';
+import { RickshawComponent } from './charts/rickshaw/rickshaw.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    CardsComponent,
+    FlotComponent,
+    RadialComponent,
+    RickshawComponent
   ],
   imports: [
     BrowserModule,
