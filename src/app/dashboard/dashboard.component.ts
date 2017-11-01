@@ -16,11 +16,18 @@ export class DashboardComponent implements OnInit {
   }
 
   goCards(type: number) {
-    this.router.navigateByUrl('/cards/' + type);
+    // this.router.navigateByUrl('/cards/' + type);
+    this.router.navigateByUrl('/cards/' + type + '?key1=hellow&key2=avon');
   }
 
   goCards2(type: number) {
-    this.router.navigate(['/cards',type]);
+    // this.router.navigate(['/cards',type]);
+    this.router.navigate(['/cards', type], {
+      queryParams: {
+        key1: 'hello',
+        key2: 'avonloveyou'
+      }
+    });
   }
 
 }
