@@ -1,15 +1,32 @@
 <section>
   <div class="container-fluid">
     <h5 class="mt0">Form2</h5>
-    <p class="mb-lg">Standard Bootstrap form and input controls with customized UI variations</p>
+    <pre>
+      form.value = {{form.value | json}}
+      form.invalid   = {{ form.invalid}}
+      form.pristine  = {{ form.pristine}}
+      form.dirty     = {{ form.dirty}}
+      form.touched   = {{ form.touched}}
+      form.untouched = {{ form.untouched}}
+      form.errors    = {{ form.errors | json}}
+    </pre>
     <div class="card">
       <div class="card-body">
-        <form method="get" action="/" class="form-horizontal">
+        <form method="get" [formGroup]="form" class="form-horizontal">
           <fieldset>
             <div class="form-group">
               <label class="col-sm-2 control-label">Rounded Corners</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control rounded">
+                <input type="text" formControlName="title" class="form-control rounded">
+                <pre>
+                  form.value = {{form.get('title').value}}
+                  invalid   = {{form.get('title').invalid}}
+                  pristine  = {{form.get('title').pristine}}
+                  dirty     = {{form.get('title').dirty}}
+                  touched   = {{form.get('title').touched}}
+                  untouched = {{form.get('title').untouched}}
+                  errors    = {{form.get('title').errors | json}}
+                </pre>
               </div>
             </div>
           </fieldset>
@@ -17,7 +34,17 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">With help</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                <input type="text" formControlName="subtitle" class="form-control">
+                <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                <pre>
+                  form.value = {{form.get('subtitle').value}}
+                  invalid   = {{form.get('subtitle').invalid}}
+                  pristine  = {{form.get('subtitle').pristine}}
+                  dirty     = {{form.get('subtitle').dirty}}
+                  touched   = {{form.get('subtitle').touched}}
+                  untouched = {{form.get('subtitle').untouched}}
+                  errors    = {{form.get('subtitle').errors | json}}
+                </pre>
               </div>
             </div>
           </fieldset>
@@ -108,7 +135,8 @@
                   <option>Option 2</option>
                   <option>Option 3</option>
                   <option>Option 4</option>
-                </select><br>
+                </select>
+                <br>
                 <div class="row">
                   <div class="col-lg-4">
                     <select multiple="" class="form-control">
@@ -128,22 +156,26 @@
               <div class="col-sm-10">
                 <div class="checkbox c-checkbox">
                   <label>
-                    <input type="checkbox" value=""><span class="ion-checkmark-round"></span> Option one
+                    <input type="checkbox" value="">
+                    <span class="ion-checkmark-round"></span> Option one
                   </label>
                 </div>
                 <div class="checkbox c-checkbox">
                   <label>
-                    <input type="checkbox" checked="" value=""><span class="ion-checkmark-round"></span> Option two checked
+                    <input type="checkbox" checked="" value="">
+                    <span class="ion-checkmark-round"></span> Option two checked
                   </label>
                 </div>
                 <div class="checkbox c-checkbox">
                   <label>
-                    <input type="checkbox" checked="" disabled="" value=""><span class="ion-checkmark-round"></span> Option three checked and disabled
+                    <input type="checkbox" checked="" disabled="" value="">
+                    <span class="ion-checkmark-round"></span> Option three checked and disabled
                   </label>
                 </div>
                 <div class="checkbox c-checkbox">
                   <label>
-                    <input type="checkbox" disabled="" value=""><span class="ion-checkmark-round"></span> Option four disabled
+                    <input type="checkbox" disabled="" value="">
+                    <span class="ion-checkmark-round"></span> Option four disabled
                   </label>
                 </div>
               </div>
@@ -151,22 +183,26 @@
               <div class="col-sm-10">
                 <div class="radio c-radio">
                   <label>
-                    <input type="radio" name="a" value="option1"><span class="ion-record"></span> Option one
+                    <input type="radio" name="a" value="option1">
+                    <span class="ion-record"></span> Option one
                   </label>
                 </div>
                 <div class="radio c-radio">
                   <label>
-                    <input type="radio" name="a" value="option2" checked=""><span class="ion-record"></span> Option two checked
+                    <input type="radio" name="a" value="option2" checked="">
+                    <span class="ion-record"></span> Option two checked
                   </label>
                 </div>
                 <div class="radio c-radio">
                   <label>
-                    <input type="radio" value="option2" checked="" disabled=""><span class="ion-record"></span> Option three checked and disabled
+                    <input type="radio" value="option2" checked="" disabled="">
+                    <span class="ion-record"></span> Option three checked and disabled
                   </label>
                 </div>
                 <div class="radio c-radio">
                   <label>
-                    <input type="radio" name="a" disabled=""><span class="ion-record"></span> Option four disabled
+                    <input type="radio" name="a" disabled="">
+                    <span class="ion-record"></span> Option four disabled
                   </label>
                 </div>
               </div>
@@ -177,13 +213,16 @@
               <label class="col-sm-2 control-label">Inline checkboxes</label>
               <div class="col-sm-10">
                 <label class="checkbox-inline c-checkbox">
-                  <input id="inlineCheckbox10" type="checkbox" value="option1"><span class="ion-checkmark-round"></span> a
+                  <input id="inlineCheckbox10" type="checkbox" value="option1">
+                  <span class="ion-checkmark-round"></span> a
                 </label>
                 <label class="checkbox-inline c-checkbox">
-                  <input id="inlineCheckbox20" type="checkbox" value="option2"><span class="ion-checkmark-round"></span> b
+                  <input id="inlineCheckbox20" type="checkbox" value="option2">
+                  <span class="ion-checkmark-round"></span> b
                 </label>
                 <label class="checkbox-inline c-checkbox">
-                  <input id="inlineCheckbox30" type="checkbox" value="option3"><span class="ion-checkmark-round"></span> c
+                  <input id="inlineCheckbox30" type="checkbox" value="option3">
+                  <span class="ion-checkmark-round"></span> c
                 </label>
               </div>
             </div>
@@ -194,12 +233,14 @@
               <div class="col-sm-10">
                 <div class="checkbox c-checkbox c-checkbox-rounded">
                   <label>
-                    <input id="roundedcheckbox10" type="checkbox" checked><span class="ion-checkmark-round"></span> Lorem
+                    <input id="roundedcheckbox10" type="checkbox" checked>
+                    <span class="ion-checkmark-round"></span> Lorem
                   </label>
                 </div>
                 <div class="checkbox c-checkbox c-checkbox-rounded">
                   <label>
-                    <input id="roundedcheckbox20" type="checkbox"><span class="ion-checkmark-round"></span> Ipsum
+                    <input id="roundedcheckbox20" type="checkbox">
+                    <span class="ion-checkmark-round"></span> Ipsum
                   </label>
                 </div>
               </div>
@@ -210,13 +251,16 @@
               <label class="col-sm-2 control-label">Inline radios</label>
               <div class="col-sm-10">
                 <label class="radio-inline c-radio">
-                  <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked><span class="ion-record"></span> a
+                  <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked>
+                  <span class="ion-record"></span> a
                 </label>
                 <label class="radio-inline c-radio">
-                  <input id="inlineradio2" type="radio" name="i-radio" value="option2"><span class="ion-record"></span> b
+                  <input id="inlineradio2" type="radio" name="i-radio" value="option2">
+                  <span class="ion-record"></span> b
                 </label>
                 <label class="radio-inline c-radio">
-                  <input id="inlineradio3" type="radio" name="i-radio" value="option3"><span class="ion-record"></span> c
+                  <input id="inlineradio3" type="radio" name="i-radio" value="option3">
+                  <span class="ion-record"></span> c
                 </label>
               </div>
             </div>
@@ -226,22 +270,29 @@
               <label class="col-sm-2 control-label">Custom icons</label>
               <div class="col-sm-10">
                 <label class="radio-inline c-radio">
-                  <input id="inlineradio10" type="radio" name="i-radio" value="option1" checked><span class="ion-checkmark-round"></span> a
+                  <input id="inlineradio10" type="radio" name="i-radio" value="option1" checked>
+                  <span class="ion-checkmark-round"></span> a
                 </label>
                 <label class="radio-inline c-radio">
-                  <input id="inlineradio20" type="radio" name="i-radio" value="option2" checked><span class="ion-person"></span> b
+                  <input id="inlineradio20" type="radio" name="i-radio" value="option2" checked>
+                  <span class="ion-person"></span> b
                 </label>
                 <label class="radio-inline c-radio">
-                  <input id="inlineradio30" type="radio" name="i-radio" value="option3" checked><span class="ion-waterdrop"></span> c
-                </label><br>
+                  <input id="inlineradio30" type="radio" name="i-radio" value="option3" checked>
+                  <span class="ion-waterdrop"></span> c
+                </label>
+                <br>
                 <label class="checkbox-inline c-checkbox">
-                  <input id="inlinecheckbox10" type="checkbox" value="option1" checked><span class="ion-star"></span> a
+                  <input id="inlinecheckbox10" type="checkbox" value="option1" checked>
+                  <span class="ion-star"></span> a
                 </label>
                 <label class="checkbox-inline c-checkbox">
-                  <input id="inlinecheckbox20" type="checkbox" value="option2" checked><span class="ion-heart"></span> b
+                  <input id="inlinecheckbox20" type="checkbox" value="option2" checked>
+                  <span class="ion-heart"></span> b
                 </label>
                 <label class="checkbox-inline c-checkbox">
-                  <input id="inlinecheckbox30" type="checkbox" value="option3" checked><span class="ion-ios-bell"></span> c
+                  <input id="inlinecheckbox30" type="checkbox" value="option3" checked>
+                  <span class="ion-ios-bell"></span> c
                 </label>
               </div>
             </div>
@@ -274,8 +325,10 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Control sizing</label>
               <div class="col-sm-10">
-                <input type="text" placeholder=".input-lg" class="form-control input-lg"><br>
-                <input type="text" placeholder="Default input" class="form-control"><br>
+                <input type="text" placeholder=".input-lg" class="form-control input-lg">
+                <br>
+                <input type="text" placeholder="Default input" class="form-control">
+                <br>
                 <input type="text" placeholder=".input-sm" class="form-control input-sm">
               </div>
             </div>
@@ -302,21 +355,33 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Input groups</label>
               <div class="col-sm-10">
-                <div class="input-group"><span class="input-group-addon">@</span>
-                  <input type="text" placeholder="Username" class="form-control">
-                </div><br>
                 <div class="input-group">
-                  <input type="text" class="form-control"><span class="input-group-addon">.00</span>
-                </div><br>
-                <div class="input-group"><span class="input-group-addon">$</span>
-                  <input type="text" class="form-control"><span class="input-group-addon">.00</span>
-                </div><br>
-                <div class="input-group"><span class="input-group-addon">
-                    <input type="checkbox"></span>
+                  <span class="input-group-addon">@</span>
+                  <input type="text" placeholder="Username" class="form-control">
+                </div>
+                <br>
+                <div class="input-group">
                   <input type="text" class="form-control">
-                </div><br>
-                <div class="input-group"><span class="input-group-addon">
-                    <input type="radio"></span>
+                  <span class="input-group-addon">.00</span>
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon">.00</span>
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input type="checkbox">
+                  </span>
+                  <input type="text" class="form-control">
+                </div>
+                <br>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input type="radio">
+                  </span>
                   <input type="text" class="form-control">
                 </div>
               </div>
@@ -326,13 +391,18 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Button addons</label>
               <div class="col-sm-10">
-                <div class="input-group"><span class="input-group-btn">
-                    <button type="button" class="btn btn-default">Go!</button></span>
-                  <input type="text" class="form-control">
-                </div><br>
                 <div class="input-group">
-                  <input type="text" class="form-control"><span class="input-group-btn">
-                    <button type="button" class="btn btn-default">Go!</button></span>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default">Go!</button>
+                  </span>
+                  <input type="text" class="form-control">
+                </div>
+                <br>
+                <div class="input-group">
+                  <input type="text" class="form-control">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default">Go!</button>
+                  </span>
                 </div>
               </div>
             </div>
@@ -343,27 +413,48 @@
               <div class="col-sm-10">
                 <div class="input-group">
                   <div class="input-group-btn">
-                    <button type="button" data-toggle="dropdown" class="btn btn-default">Action<span class="caret"></span></button>
+                    <button type="button" data-toggle="dropdown" class="btn btn-default">Action
+                      <span class="caret"></span>
+                    </button>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
+                      <li>
+                        <a href="#">Action</a>
+                      </li>
+                      <li>
+                        <a href="#">Another action</a>
+                      </li>
+                      <li>
+                        <a href="#">Something else here</a>
+                      </li>
                       <li class="divider"></li>
-                      <li><a href="#">Separated link</a></li>
+                      <li>
+                        <a href="#">Separated link</a>
+                      </li>
                     </ul>
                   </div>
                   <input type="text" class="form-control">
-                </div><br>
+                </div>
+                <br>
                 <div class="input-group">
                   <input type="text" class="form-control">
                   <div class="input-group-btn">
-                    <button type="button" data-toggle="dropdown" class="btn btn-default">Action<span class="caret"></span></button>
+                    <button type="button" data-toggle="dropdown" class="btn btn-default">Action
+                      <span class="caret"></span>
+                    </button>
                     <ul class="dropdown-menu pull-right">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
+                      <li>
+                        <a href="#">Action</a>
+                      </li>
+                      <li>
+                        <a href="#">Another action</a>
+                      </li>
+                      <li>
+                        <a href="#">Something else here</a>
+                      </li>
                       <li class="divider"></li>
-                      <li><a href="#">Separated link</a></li>
+                      <li>
+                        <a href="#">Separated link</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -377,28 +468,49 @@
                 <div class="input-group">
                   <div class="input-group-btn">
                     <button type="button" tabindex="-1" class="btn btn-default">Action</button>
-                    <button type="button" data-toggle="dropdown" class="btn btn-default"><span class="caret"></span></button>
+                    <button type="button" data-toggle="dropdown" class="btn btn-default">
+                      <span class="caret"></span>
+                    </button>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
+                      <li>
+                        <a href="#">Action</a>
+                      </li>
+                      <li>
+                        <a href="#">Another action</a>
+                      </li>
+                      <li>
+                        <a href="#">Something else here</a>
+                      </li>
                       <li class="divider"></li>
-                      <li><a href="#">Separated link</a></li>
+                      <li>
+                        <a href="#">Separated link</a>
+                      </li>
                     </ul>
                   </div>
                   <input type="text" class="form-control">
-                </div><br>
+                </div>
+                <br>
                 <div class="input-group">
                   <input type="text" class="form-control">
                   <div class="input-group-btn">
                     <button type="button" tabindex="-1" class="btn btn-default">Action</button>
-                    <button type="button" data-toggle="dropdown" class="btn btn-default"><span class="caret"></span></button>
+                    <button type="button" data-toggle="dropdown" class="btn btn-default">
+                      <span class="caret"></span>
+                    </button>
                     <ul class="dropdown-menu pull-right">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
+                      <li>
+                        <a href="#">Action</a>
+                      </li>
+                      <li>
+                        <a href="#">Another action</a>
+                      </li>
+                      <li>
+                        <a href="#">Something else here</a>
+                      </li>
                       <li class="divider"></li>
-                      <li><a href="#">Separated link</a></li>
+                      <li>
+                        <a href="#">Separated link</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
