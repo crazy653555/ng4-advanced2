@@ -10,8 +10,11 @@ export class Form1Component implements OnInit {
 
   data: any = {
     title:"avon",
-    subtitle:"miss you"
+    subtitle:"miss you",
+    mails:[]
   };
+
+  emails=['eason@gmail.com','avon@gmail.com'];
 
   constructor() { }
 
@@ -24,6 +27,10 @@ export class Form1Component implements OnInit {
     }else{
       console.log('yes');
     }
+  }
+
+  addMail(){
+
   }
 
 }
