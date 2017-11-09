@@ -49,6 +49,8 @@
             </div>
           </fieldset>
 
+          <input type="button" value="resetValue" (click)="resetValue()">
+
           <h2>Pepole Orz</h2>
           <div formArrayName="people">
             <fieldset *ngFor="let group of form.get('people')['controls'];let i = index">
