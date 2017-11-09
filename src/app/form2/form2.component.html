@@ -31,11 +31,11 @@
             </div>
           </fieldset>
           <fieldset>
-            <div class="form-group">
+            <div class="form-group" [class.has-error]= "form.get('subtitle').touched && form.get('subtitle').invalid">
               <label class="col-sm-2 control-label">With help</label>
               <div class="col-sm-10">
                 <input type="text" formControlName="subtitle" class="form-control">
-                <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                <span *ngIf="form.get('subtitle').invalid" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
                 <pre>
                   form.value = {{form.get('subtitle').value}}
                   invalid   = {{form.get('subtitle').invalid}}
