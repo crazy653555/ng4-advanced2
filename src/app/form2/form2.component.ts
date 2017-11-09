@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-form2',
@@ -16,7 +16,31 @@ export class Form2Component implements OnInit {
     this.form = this.fb.group({
       title:['Hello',Validators.required],
       subtitle:'Avon',
-    })
+      people:this.fb.array([
+        this.fb.group({
+          name:'',
+          tel:'',
+          email:''
+        }),
+        this.fb.group({
+          name:this.fb.control(''),
+          tel:'',
+          email:''
+        })
+      ])
+    });
+  }
+
+  addPerson(){
+    console.log('addPerson()');
+    let people = this.form.get('people') as FormArray;
+    people.push(
+      this.fb.group({
+        name:'',
+        tel:'',
+        email:''
+      })
+    )
   }
 
 }
