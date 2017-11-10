@@ -14,7 +14,7 @@
       <div class="card-body">
         <form method="get" [formGroup]="form" class="form-horizontal">
           <fieldset>
-            <div class="form-group">
+            <div class="form-group" [class.has-error]="form.get('title').touched && form.get('title').invalid">
               <label class="col-sm-2 control-label">Rounded Corners</label>
               <div class="col-sm-10">
                 <input type="text" formControlName="title" class="form-control rounded">
@@ -31,7 +31,7 @@
             </div>
           </fieldset>
           <fieldset>
-            <div class="form-group">
+            <div class="form-group" [class.has-error]="form.get('title').touched && form.get('title').invalid">
               <label class="col-sm-2 control-label">With help</label>
               <div class="col-sm-10">
                 <input type="text" formControlName="subtitle" class="form-control">
