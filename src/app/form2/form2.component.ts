@@ -11,10 +11,10 @@ export class Form2Component implements OnInit {
 
   data = {
     title: "Hello 2",
-    // subtitle: "World 2",
+    subtitle: "World 2",
     people: [
-      { name: "Will", tel: "0232423432", email: "will.huang@example.com" },
-      { name: "John", tel: "0934834734", email: "doggy@gmail.com" }
+      { name: "fuck", tel: "0232423432", email: "will.huang@example.com" },
+      { name: "nonono", tel: "0934834734", email: "doggy@gmail.com" }
     ]
   };
 
@@ -22,22 +22,12 @@ export class Form2Component implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-<<<<<<< HEAD
-      title: ["Hello", Validators.required],
+      title: ["978", Validators.required],
       subtitle: [
-        "Avon",
+        "test 123",
         [Validators.required, Validators.minLength(2), Validators.maxLength(20)]
       ],
       people: this.fb.array([
-=======
-      title:['Hello',Validators.required],
-      subtitle:['Avon',[
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(20)
-      ]],
-      people:this.fb.array([
->>>>>>> 62fcaa4a25d6ca61e27f346e0f0b611af2478b3e
         this.fb.group({
           name: "",
           tel: "",
@@ -65,7 +55,7 @@ export class Form2Component implements OnInit {
       })
     );
   }
-  resetValue(){
+  resetValue() {
     this.form.reset(this.data);
   }
 }
