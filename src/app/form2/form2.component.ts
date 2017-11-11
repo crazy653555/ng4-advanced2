@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators, FormArray } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormArray ,AbstractControl} from "@angular/forms";
 
 @Component({
   selector: "app-form2",
@@ -11,10 +11,11 @@ export class Form2Component implements OnInit {
 
   data = {
     title: "Hello 2",
-    subtitle: "World 2",
+    // subtitle: "World 2",
     people: [
-      { name: "fuck", tel: "0232423432", email: "will.huang@example.com" },
-      { name: "nonono", tel: "0934834734", email: "doggy@gmail.com" }
+      { name: "Will", tel: "0232423432", email: "will.huang@example.com" },
+      { name: "John", tel: "0934834734", email: "doggy@gmail.com" },
+      { name: "Mary", tel: "0584847545", email: "mary@xmail.com" }
     ]
   };
 
@@ -22,10 +23,15 @@ export class Form2Component implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      title: ["978", Validators.required],
+      title: ["Hello", Validators.required],
       subtitle: [
-        "test 123",
-        [Validators.required, Validators.minLength(2), Validators.maxLength(20)]
+        "Avon",
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(20),
+          this.NaNValidator
+        ]
       ],
       people: this.fb.array([
         this.fb.group({
@@ -40,6 +46,11 @@ export class Form2Component implements OnInit {
         })
       ])
     });
+
+    this.form.setControl(
+      "people",
+      this.fb.array(this.data.people.map(p => this.fb.group(p)))
+    );
 
     this.form.patchValue(this.data);
   }
@@ -57,5 +68,10 @@ export class Form2Component implements OnInit {
   }
   resetValue() {
     this.form.reset(this.data);
+  }
+
+   NaNValidator(c: AbstractControl) {
+    let isNan = Number.isNaN(+c.value);
+    return isNaN ? { NaN: true } : null;
   }
 }
