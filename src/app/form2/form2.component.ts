@@ -22,12 +22,22 @@ export class Form2Component implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
+<<<<<<< HEAD
       title: ["Hello", Validators.required],
       subtitle: [
         "Avon",
         [Validators.required, Validators.minLength(2), Validators.maxLength(20)]
       ],
       people: this.fb.array([
+=======
+      title:['Hello',Validators.required],
+      subtitle:['Avon',[
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(20)
+      ]],
+      people:this.fb.array([
+>>>>>>> 62fcaa4a25d6ca61e27f346e0f0b611af2478b3e
         this.fb.group({
           name: "",
           tel: "",
